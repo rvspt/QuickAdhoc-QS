@@ -12,6 +12,12 @@ Tested with Qlik Sense 3.0. Should be compatible with 2.0+.
 
 An example and tutorial app can be found in the 'App Example' folder.
 
+In action:
+![alt text](./Screenshots/AnimatedExample.gif?raw=true) 
+
+Side by side comparison:
+![alt text](./Screenshots/MultipleTables.png?raw=true) 
+
 ### Release History
  * v1 - Initial relase of the extension
 

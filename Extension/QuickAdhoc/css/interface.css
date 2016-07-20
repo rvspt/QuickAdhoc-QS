@@ -1,0 +1,90 @@
+.scrollable{
+    overflow-x: auto;
+}
+
+.selection_section{
+	width: 100%;
+	float: left;
+}
+
+.add_components-title {
+	font-size: 130%;
+}
+
+.dim_container, .msr_container, .chrt_select {
+	width: 100%;
+	float: left;
+	margin-bottom: 15px;
+}
+
+.switch_label {
+	float: left;
+	margin-left: 5px;
+	line-height: 25px;
+	vertical-align: middle;
+}
+
+.dim_drill {
+	float: left;
+}
+
+.dim_drill-icon {
+	margin-left: 5px;
+	margin-top: 10px;
+	vertical-align: text-bottom;
+	height: 15px;
+}
+
+.hidden {
+	display: none;
+}
+
+/*on off switch based on https://proto.io/freebies/onoff/ */
+.onoffswitch {
+    position: relative; width: 55px;
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+    float: left;
+}
+.onoffswitch-checkbox {
+    display: none;
+}
+.onoffswitch-label {
+    display: block; overflow: hidden; cursor: pointer;
+    border: 2px solid #999999; border-radius: 15px;
+}
+.onoffswitch-inner {
+    display: block; width: 200%; margin-left: -100%;
+    transition: margin 0.3s ease-in 0s;
+}
+.onoffswitch-inner:before, .onoffswitch-inner:after {
+    display: block; float: left; width: 50%; height: 20px; padding: 0; line-height: 20px;
+    font-size: 10px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+    box-sizing: border-box;
+}
+.onoffswitch-inner:before {
+    content: "ON";
+    padding-left: 10px;
+    background-color: #EEEEEE; color: #999999;
+}
+.onoffswitch-inner:after {
+    content: "OFF";
+    padding-right: 10px;
+    background-color: #EEEEEE; color: #999999;
+    text-align: right;
+}
+.onoffswitch-switch {
+    display: block; width: 12px; margin: 4px;
+    background: #A1A1A1;
+    position: absolute; top: 0; bottom: 0;
+    right: 31px;
+    border: 2px solid #999999; border-radius: 15px;
+    transition: all 0.3s ease-in 0s; 
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-inner {
+    margin-left: 0;
+}
+.onoffswitch-checkbox:checked + .onoffswitch-label .onoffswitch-switch {
+    right: 0px; 
+    background-color: #60A628; 
+}
+

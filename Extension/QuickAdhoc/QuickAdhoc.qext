@@ -1,0 +1,16 @@
+{
+	"name": "QuickAdhoc",
+	"description": "Quickly add Library components to a table. Drill dimensions will add all the fields with a single click.",
+	"type": "visualization",
+	"version": "1.0.0",
+	"icon": "extension",
+	"preview": "preview.png",
+	"author": "Renato Vieira - rvr@qlik.com",
+	"homepage": "",
+	"keywords": "qlik-sense, visualization, quick, add, ad-hoc",
+	"license": "The MIT License (MIT)",
+	"repository": "",
+	"dependencies": {
+		"qlik-sense": ">=2.0.x"
+	}
+}

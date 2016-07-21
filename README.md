@@ -18,6 +18,9 @@ In action:
 Side by side comparison:
 ![alt text](./Screenshots/MultipleTables.png?raw=true) 
 
+Within a mashup:
+![alt text](./Screenshots/Mashup.PNG?raw=true) 
+
 ### Release History
  * v1 - Initial relase of the extension
 

@@ -31,20 +31,20 @@ function ( qsocks, qlik, extension_properties ) {
 							var dimensions_list = [];
 				            appInfos.qInfos.forEach(function(document_infos){
 					            if(document_infos.qType=='dimension'){
-					                dimensions_list.push(document_infos.qId)
+					                dimensions_list.push(document_infos.qId);
 					            	}
 					            });//dimensions
 				            var measures_list = [];
 				            appInfos.qInfos.forEach(function(document_infos){
 								if(document_infos.qType=='measure'){
-									measures_list.push(document_infos.qId)
+									measures_list.push(document_infos.qId);
 								}
-				            })//measures list
+				            });//measures list
 					        var dim_tmp_list = [];
 					        var msr_tmp_list = [];
 
 				            if(dimensions_list.length>0){
-				            	getDimensionDetails(dimensions_list, dim_tmp_list).then(function(the_one){console.log(2)})
+				            	getDimensionDetails(dimensions_list, dim_tmp_list).then(function(the_one){console.log(2);});
 		          			}
 
 		          			function getDimensionDetails(dimensions_list, dim_tmp_list){
@@ -57,7 +57,7 @@ function ( qsocks, qlik, extension_properties ) {
 		 				                      qMeta: dim_layout.qMeta,
 		 				                      qDim: dim_layout.qDim,
 		 				                      selected: false
-		 				                    }
+		 				                    };
 		 				                    dim_tmp_list.push(dim_data);
 
 		 				                    getDimensionDetails(dimensions_list, dim_tmp_list);
@@ -69,15 +69,15 @@ function ( qsocks, qlik, extension_properties ) {
 		          					var sorter = [];
  				                    dim_tmp_list.forEach(function(dim_tmp){
  				                    	sorter.push(dim_tmp.qDim.title);
- 				                    })
+ 				                    });
  				                    sorter.sort();
  				                    var sorted_dim_list = [];
  				                    sorter.forEach(function(ranked_title){
  				                    	dim_tmp_list.forEach(function(dimension){
  				                    		if(ranked_title==dimension.qDim.title)
- 				                    			sorted_dim_list.push(dimension)
- 				                    	})
- 				                    })
+ 				                    			sorted_dim_list.push(dimension);
+ 				                    	});
+ 				                    });
 		          					getMeasures(sorted_dim_list, measures_list, msr_tmp_list);
 		          				}
 		          			}
@@ -103,21 +103,21 @@ function ( qsocks, qlik, extension_properties ) {
 		          					var sorter = [];
  				                    msr_tmp_list.forEach(function(msr_tmp){
  				                    	sorter.push(msr_tmp.qMeta.title);
- 				                    })
+ 				                    });
  				                    sorter.sort();
  				                    var sorted_msr_list = [];
  				                    sorter.forEach(function(ranked_title){
  				                    	msr_tmp_list.forEach(function(measure){
  				                    		if(ranked_title==measure.qMeta.title)
- 				                    			sorted_msr_list.push(measure)
- 				                    	})
- 				                    })
+ 				                    			sorted_msr_list.push(measure);
+ 				                    	});
+ 				                    });
 		          					getSheetObjects(all_dimensions,sorted_msr_list);
 		          				}
 		          			}//measures
 		          			function getSheetObjects(all_dimensions, all_measures){
 		          				//manual object identification
-		          				if(layout.properties.targetVisualization.specified && layout.properties.targetVisualization.objectId != ""){
+		          				if(layout.properties.targetVisualization.specified && layout.properties.targetVisualization.objectId !== ""){
 		          					visualization_id = layout.properties.targetVisualization.objectId;
 		          					app.getObject(layout.properties.targetVisualization.objectId).then(function(obj){
 		          						obj.getFullPropertyTree().then(function(obj_full_props){
@@ -133,7 +133,7 @@ function ( qsocks, qlik, extension_properties ) {
 		          					});//getObject
 		          				}
 		          				//not fully configured for single object identification
-		          				else if(layout.properties.targetVisualization.specified && layout.properties.targetVisualization.objectId == ""){
+		          				else if(layout.properties.targetVisualization.specified && layout.properties.targetVisualization.objectId === ""){
 		          					$element.html("Please make sure you specify the intended Object Id");
 		          				}
 		          				//user selects a sheet object
@@ -148,13 +148,13 @@ function ( qsocks, qlik, extension_properties ) {
 						                        	}
 						                    });
 
-						                    if(sheet_objects_tmp.length == 0){
+						                    if(sheet_objects_tmp.length === 0){
 						                    	$element.html("Please make sure the sheet has at least one targetable visualization.");
 						                    }
 
 						                    var all_objects = [];
 
-						                    if(visualization_id != '')
+						                    if(visualization_id !== '')
 						                    {
 						                    	app.getObject(visualization_id).then(function(obj){
 					          						obj.getFullPropertyTree().then(function(obj_full_props){
@@ -204,7 +204,7 @@ function ( qsocks, qlik, extension_properties ) {
 			function paintOptions(dimensions_list, measures_list, objects_list, app){
 				//checking if library contents are in the selected chart
 				// if(layout.properties.targetVisualization.specified && layout.properties.targetVisualization.objectId){
-				if(visualization_id != ''){
+				if(visualization_id !== ''){
 					var selected_dimensions = {qLibraryId: [], qFieldDefs: []};
 					var selected_measures = [];
 					objects_list[0].qDimensions.forEach(function(dimension){
@@ -236,7 +236,7 @@ function ( qsocks, qlik, extension_properties ) {
 						if(dimension.qDim.qGrouping=="H"){
 							var hierarchy_verifier = [];
 							dimension.qDim.qFieldDefs.forEach(function(field){
-								hierarchy_verifier.push({field: field, selected: false})
+								hierarchy_verifier.push({field: field, selected: false});
 							});
 
 							hierarchy_verifier.forEach(function(selected_hierarchy_field){
@@ -248,7 +248,7 @@ function ( qsocks, qlik, extension_properties ) {
 
 							var hierarchy_selected = true;
 							hierarchy_verifier.forEach(function(hierarchy_selected_verifier){
-								if(hierarchy_selected_verifier.selected == false)
+								if(hierarchy_selected_verifier.selected === false)
 									hierarchy_selected = false;
 							});
 
@@ -269,7 +269,7 @@ function ( qsocks, qlik, extension_properties ) {
 				$element.addClass('scrollable');
 
 				paintDimensions($element, dimensions_list, app);
-
+				
 				if(layout.properties.userInterface.showMeasures) paintMeasures($element, measures_list, app);
 
 				if(!layout.properties.targetVisualization.specified) paintChartSelection($element, objects_list);
@@ -302,29 +302,29 @@ function ( qsocks, qlik, extension_properties ) {
 
 						//dimension switch button
 						$divDimSwitch = $(document.createElement('div'));
-						$divDimSwitch.addClass('onoffswitch');
+						$divDimSwitch.addClass('onoffswitch'+layout.properties.userInterface.switchStyle);
 						$divDimContainer.append($divDimSwitch);
 
 						$chkDimSwitch = $(document.createElement('input'));
 						$chkDimSwitch.attr('type', 'checkbox');
 						$chkDimSwitch.attr('id', object_id+'_'+dimension.qInfo.qId);
 						$chkDimSwitch.attr('name', object_id+'_dimension_'+i+'_'+dimension.qInfo.qId);
-						$chkDimSwitch.addClass('onoffswitch-checkbox');
+						$chkDimSwitch.addClass('onoffswitch'+layout.properties.userInterface.switchStyle+'-checkbox');
 						$chkDimSwitch.attr('checked',dimension.selected);
 						$chkDimSwitch.click({dim: dimension, vis: visualization_id, app: app}, toggleDimension);
 						$divDimSwitch.append($chkDimSwitch);
 
 						$lblDimSwitch = $(document.createElement('label'));
-						$lblDimSwitch.addClass('onoffswitch-label');
+						$lblDimSwitch.addClass('onoffswitch'+layout.properties.userInterface.switchStyle+'-label');
 						$lblDimSwitch.attr('for', object_id+'_'+dimension.qInfo.qId);
 						$divDimSwitch.append($lblDimSwitch);
 
 						$spnDimSwitchInner = $(document.createElement('span'));
-						$spnDimSwitchInner.addClass('onoffswitch-inner');
+						$spnDimSwitchInner.addClass('onoffswitch'+layout.properties.userInterface.switchStyle+'-inner');
 						$lblDimSwitch.append($spnDimSwitchInner);
 
 						$spnDimSwitch = $(document.createElement('span'));
-						$spnDimSwitch.addClass('onoffswitch-switch');
+						$spnDimSwitch.addClass('onoffswitch'+layout.properties.userInterface.switchStyle+'-switch');
 						$lblDimSwitch.append($spnDimSwitch);
 
 						//dimension label
@@ -371,29 +371,29 @@ function ( qsocks, qlik, extension_properties ) {
 
 					//measure switch button
 					$divMsrSwitch = $(document.createElement('div'));
-					$divMsrSwitch.addClass('onoffswitch');
+					$divMsrSwitch.addClass('onoffswitch'+layout.properties.userInterface.switchStyle);
 					$divMsrContainer.append($divMsrSwitch);
 
 					$chkMsrSwitch = $(document.createElement('input'));
 					$chkMsrSwitch.attr('type', 'checkbox');
 					$chkMsrSwitch.attr('id', object_id+'_'+measure.qInfo.qId);
 					$chkMsrSwitch.attr('name', object_id+'_measure_'+i+'_'+measure.qInfo.qId);
-					$chkMsrSwitch.addClass('onoffswitch-checkbox');
+					$chkMsrSwitch.addClass('onoffswitch'+layout.properties.userInterface.switchStyle+'-checkbox');
 					$chkMsrSwitch.attr('checked',measure.selected);
 					$chkMsrSwitch.click({msr: measure, app: app, vis: visualization_id}, toggleMeasure);
 					$divMsrSwitch.append($chkMsrSwitch);
 
 					$lblMsrSwitch = $(document.createElement('label'));
-					$lblMsrSwitch.addClass('onoffswitch-label');
+					$lblMsrSwitch.addClass('onoffswitch'+layout.properties.userInterface.switchStyle+'-label');
 					$lblMsrSwitch.attr('for', object_id+'_'+measure.qInfo.qId);
 					$divMsrSwitch.append($lblMsrSwitch);
 
 					$spnMsrSwitchInner = $(document.createElement('span'));
-					$spnMsrSwitchInner.addClass('onoffswitch-inner');
+					$spnMsrSwitchInner.addClass('onoffswitch'+layout.properties.userInterface.switchStyle+'-inner');
 					$lblMsrSwitch.append($spnMsrSwitchInner);
 
 					$spnMsrSwitch = $(document.createElement('span'));
-					$spnMsrSwitch.addClass('onoffswitch-switch');
+					$spnMsrSwitch.addClass('onoffswitch'+layout.properties.userInterface.switchStyle+'-switch');
 					$lblMsrSwitch.append($spnMsrSwitch);
 
 					//measure label
@@ -426,15 +426,16 @@ function ( qsocks, qlik, extension_properties ) {
 					// toggleObject(object);
 				});
 				$divAppCharts.append($ChtSelect);
-				if(visualization_id == ''){
+				var selected_text = '';
+				if(visualization_id === ''){
 					$ChtSelectOption_default = $(document.createElement('option'));
 					$ChtSelectOption_default.attr('value', visualization_id);
-					var selected_text = "Please select a chart";
+					selected_text = "Please select a chart";
 					$ChtSelectOption_default.text(selected_text);
 					$ChtSelect.append($ChtSelectOption_default);
 				}
 				for (var i=0; i<objects_list.length; i++){
-					if(visualization_id != '' && i==0)  {
+					if(visualization_id !== '' && i === 0)  {
 						$ChtSelectOption_default = $(document.createElement('option'));
 						$ChtSelectOption_default.attr('value', visualization_id);
 						objects_list.forEach(function(object){
@@ -447,7 +448,7 @@ function ( qsocks, qlik, extension_properties ) {
 						var object = objects_list[i];
 						$ChtSelectOption = $(document.createElement('option'));
 						$ChtSelectOption.attr('value', object.objectId);
-						$ChtSelectOption.text(object.visualization.charAt(0).toUpperCase() + object.visualization.slice(1) +': '+ (objects_list[i].title=="" ? "<no title>" : objects_list[i].title));
+						$ChtSelectOption.text(object.visualization.charAt(0).toUpperCase() + object.visualization.slice(1) +': '+ (objects_list[i].title === "" ? "<no title>" : objects_list[i].title));
 						$ChtSelectOption.click(object, toggleObject);
 						$ChtSelect.append($ChtSelectOption);
 					}

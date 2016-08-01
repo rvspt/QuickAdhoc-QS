@@ -34,7 +34,27 @@ define( [], function () {
 									{ value: false, label: "Deactivated"}
 								],
 								defaultValue: false
-							}//properties.userInterface.showMeasures
+							},//properties.userInterface.showMeasures
+							switchStyle:{
+								ref: "properties.userInterface.switchStyle",
+								label: "Switch Style",
+								type: "string",
+								component: "radiobuttons",
+								options: [{
+									value: "1",
+									label: "Style 1"
+								}, {
+									value: "2",
+									label: "Style 2"
+								}, {
+									value: "3",
+									label: "Style 3"
+								}, {
+									value: "4",
+									label: "Style 4"
+								}],
+								defaultValue: "1"
+							}//properties.userInterface.switchStyle
 						}
 					},
 					targetVisualization:{

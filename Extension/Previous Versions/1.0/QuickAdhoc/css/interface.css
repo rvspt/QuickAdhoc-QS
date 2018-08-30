@@ -1,0 +1,217 @@
+.scrollable{
+    overflow-x: auto;
+}
+
+.selection_section{
+	width: 100%;
+	float: left;
+}
+
+.add_components-title {
+	font-size: 130%;
+}
+
+.dim_container, .msr_container, .chrt_select {
+	width: 100%;
+	float: left;
+	margin-bottom: 15px;
+}
+
+.switch_label {
+	float: left;
+	margin-left: 8px;
+	line-height: 25px;
+	vertical-align: middle;
+}
+
+.dim_drill {
+	float: left;
+}
+
+.dim_drill-icon {
+	margin-left: 5px;
+	margin-top: 10px;
+	vertical-align: text-bottom;
+	height: 15px;
+}
+
+.hidden {
+	display: none;
+}
+
+/*on off switch style 1 based on https://proto.io/freebies/onoff/ */
+.onoffswitch1 {
+    position: relative; width: 55px;
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+    float: left;
+}
+.onoffswitch1-checkbox {
+    display: none;
+}
+.onoffswitch1-label {
+    display: block; overflow: hidden; cursor: pointer;
+    border: 2px solid #999999; border-radius: 15px;
+}
+.onoffswitch1-inner {
+    display: block; width: 200%; margin-left: -100%;
+    transition: margin 0.3s ease-in 0s;
+}
+.onoffswitch1-inner:before, .onoffswitch1-inner:after {
+    display: block; float: left; width: 50%; height: 20px; padding: 0; line-height: 20px;
+    font-size: 10px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+    box-sizing: border-box;
+}
+.onoffswitch1-inner:before {
+    content: "ON";
+    padding-left: 10px;
+    background-color: #EEEEEE; color: #999999;
+}
+.onoffswitch1-inner:after {
+    content: "OFF";
+    padding-right: 10px;
+    background-color: #EEEEEE; color: #999999;
+    text-align: right;
+}
+.onoffswitch1-switch {
+    display: block; width: 12px;  height:12px; margin: 4px;
+    background: #A1A1A1;
+    position: absolute; top: 0; bottom: 0;
+    right: 31px;
+    border: 2px solid #999999; border-radius: 15px;
+    transition: all 0.3s ease-in 0s; 
+}
+.onoffswitch1-checkbox:checked + .onoffswitch1-label .onoffswitch1-inner {
+    margin-left: 0;
+}
+.onoffswitch1-checkbox:checked + .onoffswitch1-label .onoffswitch1-switch {
+    right: 0px; 
+    background-color: #60A628; 
+}
+
+/*on off switch style 2 based on https://proto.io/freebies/onoff/ */
+.onoffswitch2 {
+    position: relative; width: 40px;
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+	float: left;
+	padding-left: 5px;
+	margin-top: 4px;
+}
+.onoffswitch2-checkbox {
+    display: none;
+}
+.onoffswitch2-label {
+    display: block; overflow: hidden; cursor: pointer;
+    height: 11px; padding: 0; line-height: 11px;
+    border: 0px solid #999999; border-radius: 23px;
+    background-color: #EEEEEE;
+}
+.onoffswitch2-label:before {
+    content: "";
+    display: block; width: 20px; margin: -6px;
+    background: #FFFFFF;
+    position: absolute; top: 0; bottom: 0;
+    right: 25px;
+    border-radius: 20px;
+    box-shadow: 0 6px 12px 0px #757575;
+}
+.onoffswitch2-checkbox:checked + .onoffswitch2-label {
+    background-color: #34A7C1;
+}
+.onoffswitch2-checkbox:checked + .onoffswitch2-label, .onoffswitch2-checkbox:checked + .onoffswitch-label:before {
+   border-color: #34A7C1;
+}
+.onoffswitch2-checkbox:checked + .onoffswitch2-label .onoffswitch2-inner {
+    margin-left: 0;
+}
+.onoffswitch2-checkbox:checked + .onoffswitch2-label:before {
+    right: 0px; 
+    background-color: #FFFFFF; 
+    box-shadow: 3px 6px 18px 0px rgba(0, 0, 0, 0.2);
+}
+
+/*on off switch style 3 based on https://proto.io/freebies/onoff/ */
+.onoffswitch3 {
+    position: relative; width: 41px;
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+	float: left;
+	padding-left: 5px;
+	margin-top: 4px;
+}
+.onoffswitch3-checkbox {
+    display: none;
+}
+.onoffswitch3-label {
+    display: block; overflow: hidden; cursor: pointer;
+    border: 2px solid #999999; border-radius: 20px;
+}
+.onoffswitch3-inner {
+    display: block; width: 200%; margin-left: -100%;
+    transition: margin 0.3s ease-in 0s;
+}
+.onoffswitch3-inner:before, .onoffswitch3-inner:after {
+    display: block; float: left; width: 50%; height: 8px; padding: 0; line-height: 8px;
+    font-size: 10px; color: white; font-family: Trebuchet, Arial, sans-serif; font-weight: bold;
+    box-sizing: border-box;
+}
+.onoffswitch3-inner:before {
+    content: "";
+    padding-left: 5px;
+    background-color: #51C234; color: ;
+}
+.onoffswitch3-inner:after {
+    content: "";
+    padding-right: 5px;
+    background-color: #EEEEEE; color: ;
+    text-align: right;
+}
+.onoffswitch3-switch {
+    display: block; width: 19px; margin: -5.5px;
+    background: #FFFFFF;
+    position: absolute; top: 0; bottom: 0;
+    right: 29px;
+    border: 2px solid #999999; border-radius: 20px;
+    transition: all 0.3s ease-in 0s; 
+}
+.onoffswitch3-checkbox:checked + .onoffswitch3-label .onoffswitch3-inner {
+    margin-left: 0;
+}
+.onoffswitch3-checkbox:checked + .onoffswitch3-label .onoffswitch3-switch {
+    right: 0px; 
+}
+
+/*on off switch style 4 based on https://proto.io/freebies/onoff/ */
+.onoffswitch4 {
+    position: relative; width: 44px;
+    -webkit-user-select:none; -moz-user-select:none; -ms-user-select: none;
+	float: left;
+	padding-left: 5px;
+	margin-top: 4px;
+}
+.onoffswitch4-checkbox {
+    display: none;
+}
+.onoffswitch4-label {
+    display: block; overflow: hidden; cursor: pointer;
+    height: 19px; padding: 0; line-height: 19px;
+    border: 2px solid #CCCCCC; border-radius: 19px;
+    background-color: #FFFFFF;
+    transition: background-color 0.3s ease-in;
+}
+.onoffswitch4-label:before {
+    content: "";
+    display: block; width: 19px; margin: 0px;
+    background: #FFFFFF;
+    position: absolute; top: 0; bottom: 0;
+    right: 23px;
+    border: 2px solid #CCCCCC; border-radius: 19px;
+    transition: all 0.3s ease-in 0s; 
+}
+.onoffswitch4-checkbox:checked + .onoffswitch4-label {
+    background-color: #19B816;
+}
+.onoffswitch4-checkbox:checked + .onoffswitch4-label, .onoffswitch4-checkbox:checked + .onoffswitch4-label:before {
+   border-color: #19B816;
+}
+.onoffswitch4-checkbox:checked + .onoffswitch4-label:before {
+    right: 0px; 
+}

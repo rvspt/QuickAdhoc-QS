@@ -8,7 +8,7 @@ The extension object will read the application's Library items and allow the fol
 
 The target table can be specified by 'Single Object ID' (easy to find with Dev-Hub's single object configurator) or a dropdown will list all the tables within a sheet, which can be used for quick side-by-side comparisons.
 
-Tested with Qlik Sense 3.0. Should be compatible with 2.0+.
+Tested with Qlik Sense June 2018. For prior versions make sure you are using v1.0.
 
 An example and tutorial app can be found in the 'App Example' folder.
 
@@ -22,8 +22,5 @@ Within a mashup:
 ![alt text](./Screenshots/Mashup.PNG?raw=true) 
 
 ### Release History
- * v1 - Initial relase of the extension
-
-### Future releases
-It is my intension to add support to Qlik Sense's native pivot-table in the near future.
- 
+ * v1.0.1 - Added compatibility for June 2018
+ * v1.0 - Initial relase of the extension
